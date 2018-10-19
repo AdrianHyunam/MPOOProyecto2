@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "interfazDeRegistro/RegistroDelUsuarioViewController.swift"
-            timestampString = "561668054.07266"
+            timestampString = "561675171.619566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "registrar(_:)"
             landmarkType = "7">
          </BreakpointContent>

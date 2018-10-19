@@ -10,20 +10,25 @@ import UIKit
 
 class UsuarioIngresadoViewController: UIViewController {
     
-    var registrado: [String] = []
+    var registradoNombre: [String] = []
+    var registradoApodo: [String] = []
     var posicion = 0
     
     @IBOutlet weak var nombreUsuario: UILabel!
+    @IBOutlet weak var apodoDeUsuario: UILabel!
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let defaults = UserDefaults.standard
         
-        registrado = defaults.array(forKey: "listaDeNombres") as? [String] ?? [String]()
-        nombreUsuario.text = "\(registrado[posicion])"
+        registradoNombre = defaults.array(forKey: "listaDeNombres") as? [String] ?? [String]()
+        nombreUsuario.text = "\(registradoNombre[posicion])"
+        registradoApodo = defaults.array(forKey: "listaDeApodos") as? [String] ?? [String]()
+        apodoDeUsuario.text = registradoApodo[posicion]
+       
+        
     }
 
-    @IBAction func cerrar(_ sender: UIButton) {
-    }
-    
 }

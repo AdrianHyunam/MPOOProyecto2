@@ -11,8 +11,11 @@ import UIKit
 class ViewController: UIViewController {
 
     var cont = 0
+    var candado1: Bool = false
+    var candado2: Bool = false
     var usuarios: [String] = []
     var contraseñas: [String] = []
+    var estado: [Bool] = []
     
     @IBOutlet weak var usuarioQueEntra: UITextField!
     @IBOutlet weak var contraseñaDelUsuario: UITextField!
@@ -27,7 +30,10 @@ class ViewController: UIViewController {
         
         usuarios = defaults.array(forKey: "listaDeNombres") as? [String] ?? [String]()
         contraseñas = defaults.array(forKey: "listaDeContraseñas") as? [String] ?? [String]()
+        
         errorDeusuario.alpha = 0
+        candado1 = false
+        candado2 = false
     }
     
     @IBAction func entrabro() {
@@ -42,11 +48,22 @@ class ViewController: UIViewController {
             {
                 if i == usuarioQueEntra.text!
                 {
-                    performSegue(withIdentifier: "inicio", sender: self)
-                    print("continuar")
+                    //print("\(i)------------------")
+                    for x in contraseñas
+                    {
+                        if x == contraseñaDelUsuario.text!
+                        {
+                            performSegue(withIdentifier: "inicio", sender: self)
+                            
+                            
+                            //print("continuar")
+                        }
+                        cont += 1
+                    }
+                    
                 }
                 
-                cont += 1
+                
                 errorDeusuario.alpha = 0
             }
         }

@@ -14,12 +14,10 @@ class RegistroDelUsuarioViewController: UIViewController {
     var listaDeEstados: [Bool] = []
     var listaDeNombres: [String] = []
     var listaDeApodos: [String] = []
-    var listaDeEdades: [String] = []
     var listaDeContraseñas: [String] = []
     
     @IBOutlet weak var nombre: UITextField!
     @IBOutlet weak var apodo: UITextField!
-    @IBOutlet weak var edad: UITextField!
     @IBOutlet weak var contraseña: UITextField!
     @IBOutlet weak var validarContraseña: UITextField!
     @IBOutlet weak var errorDeContraseña: UILabel!
@@ -34,8 +32,8 @@ class RegistroDelUsuarioViewController: UIViewController {
         
         listaDeNombres = defaults.object(forKey: "listaDeNombres") as? [String] ?? [String]()
         listaDeApodos = defaults.object(forKey: "listaDeApodos") as? [String] ?? [String]()
-       
         listaDeContraseñas = defaults.object(forKey: "listaDeContraseñas") as? [String] ?? [String]()
+        listaDeEstados = defaults.object(forKey: "listaDeEstados") as? [Bool] ?? [Bool]()
         }
     
     @IBAction func registrar(_ sender: UIButton)
@@ -44,8 +42,8 @@ class RegistroDelUsuarioViewController: UIViewController {
         let defaults = UserDefaults.standard
         let usuarioNombre = nombre.text
         let usuarioApodo = apodo.text
-        let usuarioEdad = edad.text
         let usuarioContra = contraseña.text
+        let estadoInicial = false
         
         let vacio = ""
         
@@ -65,12 +63,11 @@ class RegistroDelUsuarioViewController: UIViewController {
             listaDeApodos.append(usuarioApodo!)
             defaults.set(listaDeApodos, forKey: "listaDeApodos")
             print(listaDeApodos)
-            listaDeEdades.append(usuarioEdad!)
-            defaults.set(listaDeEdades, forKey: "listaDeEdades")
-            print(listaDeEdades)
             listaDeContraseñas.append(usuarioContra!)
             defaults.set(listaDeContraseñas, forKey: "listaDeContraseñas")
             print(listaDeContraseñas)
+            defaults.set(listaDeEstados, forKey: "listaDeEstados")
+            listaDeEstados.append(estadoInicial)
         }
         else
         {
